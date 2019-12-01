@@ -15,6 +15,7 @@
         <module>remote</module>
         <module>common</module>
         <module>proxy</module>
+        <module>quick-start</module>
     </modules>
 
     <name>rpc</name>
@@ -26,7 +27,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-compiler-plugin>3.6.1</maven-compiler-plugin>
-        <spring-version>5.1.9.RELEASE</spring-version>
+        <spring-version>5.2.0.RELEASE</spring-version>
         <registry-version>1.0-SNAPSHOT</registry-version>
         <remote-version>1.0-SNAPSHOT</remote-version>
         <common-version>1.0-SNAPSHOT</common-version>
@@ -35,16 +36,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.muyu</groupId>
-                <artifactId>registry</artifactId>
-                <version>${registry-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.muyu</groupId>
-                <artifactId>remote</artifactId>
-                <version>${remote-version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.muyu</groupId>
                 <artifactId>common</artifactId>
@@ -56,10 +47,95 @@
                 <version>${proxy-version}</version>
             </dependency>
             <dependency>
+                <groupId>com.muyu</groupId>
+                <artifactId>registry</artifactId>
+                <version>${registry-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.muyu</groupId>
+                <artifactId>remote</artifactId>
+                <version>${remote-version}</version>
+            </dependency>
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.8</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>5.0.0.Alpha2</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>3.4.6</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.101tec/zkclient -->
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.10</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+
+            <!--这个依赖直接包含了 logback-core 以及 slf4j-api的依赖-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.2.3</version>
             </dependency>
 
         </dependencies>

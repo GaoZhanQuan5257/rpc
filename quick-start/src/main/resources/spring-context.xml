@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath:context.properties"/>
+
+    <bean id="userService" class="com.muyu.impl.UserServiceImpl"></bean>
+
+    <bean class="com.muyu.server.ServerProvider" init-method="start" destroy-method="close">
+        <constructor-arg name="port" value="${netty.port}"/>
+        <property name="beanFactory">
+            <map>
+                <!-- 需要注册的Bean,即对外界暴露的bean-->
+                <entry key="com.muyu.service.UserService" value-ref="userService"/>
+            </map>
+        </property>
+        <property name="registry" ref="registry"></property>
+    </bean>
+
+    <!-- 注册中心 -->
+    <bean id="registry" class="com.muyu.impl.ZookeeperRegistry">
+        <constructor-arg name="servers" value="${registry.zookeepr.address}"/>
+    </bean>
+
+    <bean id="failFastCluster" class="com.muyu.impl.FailFastCluster"/>
+
+
+</beans>
