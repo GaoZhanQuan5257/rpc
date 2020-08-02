@@ -26,7 +26,4 @@
         <constructor-arg name="servers" value="${registry.zookeepr.address}"/>
     </bean>
 
-    <bean id="failFastCluster" class="com.muyu.impl.FailFastCluster"/>
-
-
 </beans>
